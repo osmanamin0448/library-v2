@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "Norse";
+  src:
+   url(./fonts/Norse-Bold.woff) format("woff"),
+   url(./fonts/Norse-Bold.woff2) format("woff2");
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+
+.container{
+  height: 100vh;
+  background-color: goldenrod;
+  display: grid;
+  grid-template-rows: 100px 5fr 50px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px 20px;
+  background-color: brown
+
+}
+.logo-container{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.logo{
+  height: 80px;
+}
+h1{
+  font-family: "Norse";
+}
+.header button{
+  background-color: rgb(221, 84, 84);
+  border-radius: 10px;
+  padding: 10px 15px;
+  border: none;
+  font-family: "Norse";
+}
+button:hover{
+  background-color: rgb(136, 18, 18);
+  cursor: pointer;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.shelve-image{
+  height: 400px;
+  width: 100%;
+}
+
+
+
+/* ===== FOOTER ===== */
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: brown
+
+}
