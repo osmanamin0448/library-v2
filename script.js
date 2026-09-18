@@ -17,10 +17,7 @@ function addBookToLibrary(title, author, pages, read){
 }
 addBookToLibrary("me", 'him',299,"read");
 addBookToLibrary('you', "now",299,"not read")
-addBookToLibrary("me", 'him',299,"read");
-addBookToLibrary('you', "now",299,"not read")
-addBookToLibrary("me", 'him',299,"read");
-addBookToLibrary('you', "now",299,"not read")
+
 
 /* ===== Display Book ===== */
 function displayBook(){
@@ -38,8 +35,7 @@ function displayBook(){
     const bookPages = document.createElement("p");
     bookPages.classList.add(".book-pages");
 
-    const bookRead = document.createElement("input");
-    bookRead.type = "checkbox";
+    const bookRead = document.createElement("p");
     bookRead.classList.add("book-read");
 
     bookTitle.textContent = book.title;
