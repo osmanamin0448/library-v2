@@ -9,6 +9,9 @@ function Book(title,author, pages, read){
   this.pages = pages;
   this.read = read;
 }
+Book.prototype.setReadStatus = function(){
+  this.read = !this.read;
+}
 
 /* ===== Add Book to Library ===== */
 function addBookToLibrary(title, author, pages, read){
@@ -48,14 +51,13 @@ function displayBook(){
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
     bookPages.textContent = book.pages;
-    bookRead.textContent = book.read;
+    bookRead.textContent = book.read ? "Read" : "Not read"
 
     const deleteBook = document.createElement("button");
     deleteBook.textContent = "Delete Book";
     deleteBook.classList.add("delete-book");
 
-    bookCard.append(bookTitle, bookAuthor, bookPages, bookRead, deleteBook)
-    shelve.append(bookCard)
+    
 
     deleteBook.addEventListener("click", () => {
       const bookId = bookCard.dataset.id;
@@ -65,6 +67,21 @@ function displayBook(){
 
       displayBook()
     })
+
+    const readStatus = document.createElement("button");
+    readStatus.textContent = "Read Status";
+    readStatus.classList.add("read-status")
+
+    readStatus.addEventListener("click", () => {
+      book.setReadStatus();
+
+      displayBook();
+    })
+
+
+    bookCard.append(bookTitle, bookAuthor, bookPages, bookRead, deleteBook, readStatus);
+    shelve.append(bookCard)
+ 
   }
 }
 displayBook()
@@ -73,7 +90,7 @@ const newBook = document.querySelector(".new-book");
 const dialog = document.querySelector("dialog");
 
 /* ===== Open a Form Window to Enter book Info =====*/
-addBook.addEventListener("click", () => {
+newBook.addEventListener("click", () => {
   dialog.showModal();
 })
 
