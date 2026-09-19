@@ -16,6 +16,9 @@ function addBookToLibrary(title, author, pages, read){
   myLibrary.push(book);
 }
 
+addBookToLibrary("Rich Dad Poor Dad", "Robert Kiyosaki", 600, "not read");
+addBookToLibrary("No Excuses", "Brian Tracy", 445, "read");
+
 /* ===== Display Book ===== */
 function displayBook(){
   let shelve = document.querySelector('.shelve')
@@ -24,8 +27,12 @@ function displayBook(){
   shelve.innerHTML = "";  
 
   for(let book of myLibrary){
+    
     const bookCard = document.createElement("div")
     bookCard.classList.add("book-card")
+
+    //Assign each bookCard with unique id
+    bookCard.dataset.id = book.id
 
     const bookTitle = document.createElement("h1");
 
@@ -43,12 +50,26 @@ function displayBook(){
     bookPages.textContent = book.pages;
     bookRead.textContent = book.read;
 
-    bookCard.append(bookTitle, bookAuthor, bookPages,bookRead)
+    const deleteBook = document.createElement("button");
+    deleteBook.textContent = "Delete Book";
+    deleteBook.classList.add("delete-book");
+
+    bookCard.append(bookTitle, bookAuthor, bookPages, bookRead, deleteBook)
     shelve.append(bookCard)
+
+    deleteBook.addEventListener("click", () => {
+      const bookId = bookCard.dataset.id;
+
+      const index = myLibrary.findIndex(book => book.id === bookId);
+      myLibrary.splice(index, 1)
+
+      displayBook()
+    })
   }
 }
+displayBook()
 
-const addBook = document.querySelector(".add-book");
+const newBook = document.querySelector(".new-book");
 const dialog = document.querySelector("dialog");
 
 /* ===== Open a Form Window to Enter book Info =====*/
