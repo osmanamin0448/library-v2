@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .container{
-  height: 100vh;
+  min-height: 100vh;
   background-color: goldenrod;
   display: grid;
   grid-template-rows: 100px 5fr 50px;
@@ -94,7 +94,97 @@ button:hover{
   width: 100%;
 }
 
+.shelve{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px, 350px));
+  gap: 10px;
+  padding: 10px;
+}
 
+/* ===== DIALOG BOX ===== */
+dialog{
+  width: 500px;
+  border:  solid 2px black;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: goldenrod;
+}
+form label{
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  
+}
+form input{
+border-radius: 5px;
+border: none;
+width: 100%;
+}
+.checkbox-div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+#read{
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+.buttons-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-div .add-book,
+.cancel-btn{
+  background-color: green;
+  border-radius: 5px;
+  border: none;
+  width: 50%;
+  margin:10px; 
+  padding:5px;
+  font-weight: bold;
+}
+.add-book:hover{
+  background-color: limegreen;
+  cursor: pointer;
+}
+.cancel-btn{
+  background-color: red;
+}
+.cancel-btn:hover{
+  background-color: lightcoral;
+}
+
+
+/* ===== BOOK CARD ===== */
+.shelve .book-card{
+  text-align: center;
+  background-color: brown;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.delete-book, 
+.read-status{
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  font: bold;
+  margin-right: 20px;
+}
+.delete-book:hover{
+  background-color: lightcoral;
+}
+
+.read-status{
+  background-color: green;
+}
+.read-status:hover{
+  background-color: lightgreen;
+}
 
 /* ===== FOOTER ===== */
 .footer{
