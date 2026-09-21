@@ -9,10 +9,8 @@ function Book(title,author, pages, read){
   this.pages = pages;
   this.read = read;
 }
-Book.prototype.setReadStatus = function(){
-  this.read = !this.read;
-}
 
+   
 /* ===== Add Book to Library ===== */
 function addBookToLibrary(title, author, pages, read){
   const book = new Book(title, author, pages, read);
@@ -51,7 +49,8 @@ function displayBook(){
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
     bookPages.textContent = book.pages;
-    bookRead.textContent = book.read ? "Read" : "Not read"
+    bookRead.textContent = book.read
+
 
     const deleteBook = document.createElement("button");
     deleteBook.textContent = "Delete Book";
@@ -72,14 +71,7 @@ function displayBook(){
     readStatus.textContent = "Read Status";
     readStatus.classList.add("read-status")
 
-    readStatus.addEventListener("click", () => {
-      book.setReadStatus();
-
-      displayBook();
-    })
-
-
-    bookCard.append(bookTitle, bookAuthor, bookPages, bookRead, deleteBook, readStatus);
+    bookCard.append(bookTitle, bookAuthor, bookPages, bookRead, deleteBook);
     shelve.append(bookCard)
  
   }
@@ -102,7 +94,7 @@ form.addEventListener("submit", (event) => {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const pages = document.querySelector("#pages").value
-  const read = document.querySelector("#read").value
+  const read = document.querySelector("#read").checked ? 'Read' : "Not Read";
 
   addBookToLibrary(title, author, pages, read);
 
