@@ -2,18 +2,31 @@
 const myLibrary = [];
 
 /* ===== Creates Book ===== */
-function Book(title,author, pages, read){
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+// function Book(title,author, pages, read){
+//   this.id = crypto.randomUUID();
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+// }
 
-Book.prototype.setReadStatus = function(){
-  this.read = !this.read;
-}
+// Book.prototype.setReadStatus = function(){
+//   this.read = !this.read;
+// }
 
+class Book{
+  constructor(title, author, pages, read){
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  setReadStatus(){
+    this.read = !this.read;
+  }
+}
    
 /* ===== Add Book to Library ===== */
 function addBookToLibrary(title, author, pages, read){
